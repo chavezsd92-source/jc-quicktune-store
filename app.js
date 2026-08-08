@@ -59,7 +59,7 @@
       if (statusEl) {
         statusEl.className = "status err";
         statusEl.textContent =
-          "Hold up — unlock the DME with B48 Quickflash (or similar) before ordering a full-flash BIN.";
+          "Hold up — the DME must already be unlocked (B48 Quickflash or similar) before ordering a full-flash BIN.";
       }
       return;
     }
@@ -125,15 +125,15 @@
       `Email: ${order.email}`,
       `Vehicle: ${order.vehicle}`,
       `SWFL/SWFK: ${order.software}`,
-      `Unlock: ${order.unlock}`,
+      `DME unlock status: ${order.unlock}`,
       `Flash tool: ${order.tool}`,
       `Hardware: ${order.hardware}`,
       `Notes / mods: ${order.notes || "—"}`,
       "",
       "Customer confirmed: full BIN flash required",
       "Customer confirmed: stock BIN backup",
-      "DME must already be unlocked (Quickflash or similar)",
-      "Power figures on site are for all-stock hardware",
+      "DME must already be unlocked (B48 Quickflash or similar) — not provided by this product",
+      "Power figures on site are for all-stock hardware (JC Street Dyno verified + datalogs)",
     ].join("\n");
 
     if (navigator.clipboard?.writeText) {

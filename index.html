@@ -53,8 +53,7 @@
             quiet and thriftier in Comfort / default, and only mean in Sport / Sport+.
           </p>
           <p class="intro">
-            Validated on street logs (Quickflash + our own datalogger), 93 AKI, hot weather, real WOT pulls —
-            not a dyno brochure screenshot.
+            Built on 93 AKI, hot weather, and a lot of real street pulls — not brochure fantasy.
           </p>
           <p class="price-line">
             Base flash <strong>$149</strong>
@@ -71,18 +70,31 @@
             <tr><td>Peak power</td><td><strong>~355 hp</strong> / <strong>~300 rwhp</strong></td></tr>
             <tr><td>Peak torque</td><td><strong>~335 lb-ft</strong> (engine)</td></tr>
             <tr><td>WOT boost</td><td><strong>~22–23 psi</strong></td></tr>
-            <tr><td>WOT AFR</td><td><strong>~12.2</strong> (Quickflash)</td></tr>
-            <tr><td>Clutch TQ (logged)</td><td><strong>~430–450 Nm</strong> after unlock</td></tr>
+            <tr><td>WOT AFR</td><td><strong>~12.2</strong></td></tr>
+            <tr><td>Clutch TQ (logged)</td><td><strong>~430–450 Nm</strong></td></tr>
           </table>
-          <p class="small dim">
-            These estimates are for an <strong>all-stock car</strong> only — same setup we logged.
-            Not a chassis-dyno certificate, but solid working numbers when hardware matches.
-          </p>
+          <div class="verify-badge">
+            <img
+              src="assets/jc-street-dyno-logo.png"
+              alt="JC Street Dyno"
+              width="120"
+              height="40"
+              class="verify-logo"
+            />
+            <div class="verify-copy">
+              <strong>Verified using JC Street Dyno</strong>
+              <span class="copy-mark">© JC Street Dyno / JC QuickTune</span>
+              <p>
+                Supported by extensive testing and datalogs on an <strong>all-stock</strong> car
+                with this exact calibration stack. Figures are for stock hardware — list any mods
+                when you order so the file can be built accurately.
+              </p>
+            </div>
+          </div>
           <p class="small mod-note">
             <strong>Mods matter.</strong> Downpipe, intake, intercooler, charge pipe, exhaust, ethanol,
             bigger turbo, upgraded clutch/TCU, etc. change airflow, fueling, and torque limits.
-            List every modification when you order so the BIN can be built accurately — don’t assume
-            a stock calibration is correct for a modified car.
+            List every modification when you order — don’t assume a stock calibration is right for a modified car.
           </p>
         </div>
       </div>
@@ -115,7 +127,7 @@
             </p>
             <p>
               Also includes the <code>1F053C</code> max-acceleration safety work. We hit drivetrain limp
-              twice after the big torque unlock before that was sorted. You probably don’t want that surprise.
+              twice after raising torque ceilings hard — before that fix was sorted. You probably don’t want that surprise.
             </p>
           </div>
         </div>
@@ -124,8 +136,8 @@
           <h3>Honest list (not a feature matrix)</h3>
           <ul>
             <li>Dual personality: quiet Comfort, loud Sport paths</li>
-            <li>Full BIN delivery for unlocked MG1 flash tools</li>
-            <li>Torque path unlock past stock actual-torque ceilings</li>
+            <li>Full BIN delivery for MG1 full-flash tools (DME must already be unlocked — see requirements)</li>
+            <li>Torque &amp; load ceilings raised past stock actual-torque caps</li>
             <li>Sport burble pack (duration + timing offsets)</li>
             <li>Accel safety calibration for the “max acceleration exceeded” limp</li>
             <li>Optional Texas cooling pack, spicier pedal, louder burble, log review</li>
@@ -140,9 +152,10 @@
         <h2>Flash requirements (non-negotiable)</h2>
         <ol class="steps">
           <li>
-            <strong>Unlock the DME first.</strong>
-            Use B48 Quickflash (or equivalent full-flash unlock path). After unlock, Quickflash should show
-            unlock detected / full flash capable — not locked stock boot behavior.
+            <strong>DME unlock first (hardware/tool path).</strong>
+            Use B48 Quickflash (or equivalent). The DME must already be unlocked for full flash —
+            Quickflash should report unlock detected / full-flash capable, not locked stock behavior.
+            This BIN does not unlock a locked DME.
           </li>
           <li>
             <strong>Read and save stock.</strong>
@@ -171,8 +184,9 @@
           </li>
         </ol>
         <p class="callout">
-          If you only have a locked DME and no unlock tool, stop here. This product assumes you (or your
-          shop) already solved unlock + full flash. We’re selling the calibration, not the unlock service.
+          If the DME is still locked and you don’t have B48 Quickflash (or similar), stop here.
+          This product assumes you (or your shop) already handled <strong>DME unlock</strong> and can
+          run a full flash. We’re selling the calibration — not a DME unlock service.
         </p>
       </div>
     </section>
@@ -191,7 +205,7 @@
             <p class="tag">$149</p>
             <p>
               Comfort eco path + Sport smooth/snappy delivery, Sport burble, torque ceilings, accel safety.
-              Full BIN. You provide SWFL/SWFK info and confirm unlock.
+              Full BIN. You provide SWFL/SWFK info and confirm the DME is already unlocked for full flash.
             </p>
           </div>
         </div>
@@ -224,10 +238,10 @@
             </span>
           </label>
           <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="79" data-name="Torque Unlock Plus" />
+            <input type="checkbox" class="addon-input" data-price="79" data-name="High Torque Package" />
             <span class="addon-price">+$79</span>
             <span class="addon-text">
-              <strong>Torque Unlock Plus</strong> —
+              <strong>High Torque Package</strong> —
               Higher actual-torque / load ceilings and a bit more boost headroom.
               93+ only. Watch the auto if you launch it like a rental.
             </span>
@@ -285,12 +299,12 @@
             <input name="software" required placeholder="e.g. 3076 v080_017_003 / 437F v080_017_013" />
           </label>
           <label>
-            Unlock status
+            DME unlock status (required for full flash)
             <select name="unlock" required>
               <option value="">—</option>
-              <option value="unlocked-quickflash">Unlocked · B48 Quickflash</option>
-              <option value="unlocked-other">Unlocked · other full-flash tool</option>
-              <option value="not-unlocked">Not unlocked yet (don’t order the BIN until this is done)</option>
+              <option value="unlocked-quickflash">DME unlocked · B48 Quickflash</option>
+              <option value="unlocked-other">DME unlocked · other full-flash tool</option>
+              <option value="not-unlocked">DME not unlocked yet (don’t order until this is done)</option>
             </select>
           </label>
           <label>
@@ -304,7 +318,7 @@
           </label>
           <label class="check">
             <input type="checkbox" name="fullflash" required />
-            I understand this is a <strong>full BIN flash</strong> and my DME must already support full flash (unlocked).
+            I understand this is a <strong>full BIN flash</strong> and my <strong>DME is already unlocked</strong> for full flash (e.g. B48 Quickflash).
           </label>
           <label class="check">
             <input type="checkbox" name="backup" required />
@@ -335,7 +349,10 @@
         <h2>FAQ</h2>
         <dl class="faq">
           <dt>Can you unlock my DME in the file?</dt>
-          <dd>No. Unlock is a separate bootloader / tool process. This is the calibration image for an already-unlocked full-flash path.</dd>
+          <dd>
+            No. <strong>DME unlock</strong> is a separate bootloader / tool process (B48 Quickflash or similar).
+            This product is the calibration image only — for a DME that is already unlocked and can take a full flash.
+          </dd>
 
           <dt>Partial flash / map-only write?</dt>
           <dd>Not supported for this product. Full flash only.</dd>
@@ -367,7 +384,7 @@
       <p><strong>JC QuickTune</strong> — custom MG1 B46/B48 street calibrations.</p>
       <p class="small dim">
         Not affiliated with BMW AG. For use only where legal. You assume all risk for flashing, driving, and hardware damage.
-        Full flash · unlocked DME required.
+        Full flash · DME must already be unlocked (B48 Quickflash or similar).
       </p>
     </div>
   </footer>
