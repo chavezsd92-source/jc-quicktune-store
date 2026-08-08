@@ -1,28 +1,17 @@
 (() => {
   const BASE = 149;
 
-  // Mode tabs
-  document.querySelectorAll(".mode-tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".mode-tab").forEach((t) => t.classList.remove("active"));
-      tab.classList.add("active");
-      const mode = tab.dataset.mode;
-      document.getElementById("mode-comfort")?.classList.toggle("hidden", mode !== "comfort");
-      document.getElementById("mode-sport")?.classList.toggle("hidden", mode !== "sport");
-    });
-  });
-
   const linesEl = document.getElementById("order-lines");
   const totalEl = document.getElementById("order-total");
   const submitTotal = document.getElementById("submit-total");
   const statusEl = document.getElementById("form-status");
   const form = document.getElementById("order-form");
 
-  function formatMoney(n) {
-    return `$${n.toLocaleString("en-US")}`;
+  function money(n) {
+    return "$" + n.toLocaleString("en-US");
   }
 
-  function selectedAddons() {
+  function addons() {
     return [...document.querySelectorAll(".addon-input:checked")].map((el) => ({
       name: el.dataset.name || "Add-on",
       price: Number(el.dataset.price) || 0,
@@ -30,26 +19,10 @@
   }
 
   function total() {
-    return BASE + selectedAddons().reduce((s, a) => s + a.price, 0);
+    return BASE + addons().reduce((s, a) => s + a.price, 0);
   }
 
-  function renderOrder() {
-    if (!linesEl || !totalEl) return;
-    const addons = selectedAddons();
-    const rows = [
-      `<li><span>Base dual-mode tune</span><span>${formatMoney(BASE)}</span></li>`,
-      ...addons.map(
-        (a) =>
-          `<li><span>${escapeHtml(a.name)}</span><span>${formatMoney(a.price)}</span></li>`
-      ),
-    ];
-    linesEl.innerHTML = rows.join("");
-    const t = total();
-    totalEl.textContent = formatMoney(t);
-    if (submitTotal) submitTotal.textContent = String(t);
-  }
-
-  function escapeHtml(s) {
+  function esc(s) {
     return String(s)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
@@ -57,66 +30,124 @@
       .replace(/"/g, "&quot;");
   }
 
+  function render() {
+    const list = addons();
+    if (linesEl) {
+      linesEl.innerHTML = list
+        .map(
+          (a) =>
+            `<li><span>${esc(a.name)}</span><span>${money(a.price)}</span></li>`
+        )
+        .join("");
+    }
+    const t = total();
+    if (totalEl) totalEl.textContent = money(t);
+    if (submitTotal) submitTotal.textContent = String(t);
+  }
+
   document.querySelectorAll(".addon-input").forEach((el) => {
-    el.addEventListener("change", renderOrder);
+    el.addEventListener("change", render);
   });
-  renderOrder();
+  render();
 
   form?.addEventListener("submit", (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    const addons = selectedAddons();
+    const unlock = String(fd.get("unlock") || "");
+
+    if (unlock === "not-unlocked") {
+      if (statusEl) {
+        statusEl.className = "status err";
+        statusEl.textContent =
+          "Hold up — unlock the DME with B48 Quickflash (or similar) before ordering a full-flash BIN.";
+      }
+      return;
+    }
+
+    if (!fd.get("fullflash") || !fd.get("backup")) {
+      if (statusEl) {
+        statusEl.className = "status err";
+        statusEl.textContent =
+          "Check both boxes: full BIN flash + stock backup.";
+      }
+      return;
+    }
+
+    const list = addons();
     const t = total();
-    const summary = {
-      product: "JC Street Dual-Mode Base",
+    const order = {
+      product: "JC dual-mode full flash base",
       base: BASE,
-      addons,
+      addons: list,
       total: t,
       name: fd.get("name"),
       email: fd.get("email"),
       vehicle: fd.get("vehicle"),
+      software: fd.get("software"),
+      unlock: unlock,
       tool: fd.get("tool"),
       notes: fd.get("notes"),
+      fullFlashAcknowledged: true,
+      stockBackupAcknowledged: true,
       createdAt: new Date().toISOString(),
     };
 
-    // Persist locally for you to wire to a backend later
     try {
       const key = "jcqt_tune_orders";
       const prev = JSON.parse(localStorage.getItem(key) || "[]");
-      prev.push(summary);
+      prev.push(order);
       localStorage.setItem(key, JSON.stringify(prev));
     } catch (_) {
       /* ignore */
     }
 
-    // Also copy a plain-text order to clipboard when possible
     const text = [
-      "JC QuickTune order request",
+      "JC QuickTune — order request",
+      "===========================",
       `Total: $${t}`,
-      `Base: $${BASE}`,
-      ...addons.map((a) => `+ ${a.name}: $${a.price}`),
-      `Name: ${summary.name}`,
-      `Email: ${summary.email}`,
-      `Vehicle: ${summary.vehicle}`,
-      `Tool: ${summary.tool}`,
-      `Notes: ${summary.notes || "—"}`,
+      `Base dual-mode full flash: $${BASE}`,
+      ...list.map((a) => `Add-on: ${a.name} (+$${a.price})`),
+      "",
+      `Name: ${order.name}`,
+      `Email: ${order.email}`,
+      `Vehicle: ${order.vehicle}`,
+      `SWFL/SWFK: ${order.software}`,
+      `Unlock: ${order.unlock}`,
+      `Flash tool: ${order.tool}`,
+      `Notes: ${order.notes || "—"}`,
+      "",
+      "Customer confirmed: full BIN flash required",
+      "Customer confirmed: stock BIN backup",
+      "DME must already be unlocked (Quickflash or similar)",
     ].join("\n");
 
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(text).catch(() => {});
     }
 
+    // Offer a downloadable .txt as a human fallback
+    try {
+      const blob = new Blob([text], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "jc-quicktune-order.txt";
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (_) {
+      /* ignore */
+    }
+
     if (statusEl) {
+      statusEl.className = "status ok";
       statusEl.textContent =
-        `Order saved locally · $${t} · ${summary.email}. Wire this form to Stripe/email when ready.`;
-      statusEl.style.color = "#3ecf8e";
+        `Order text ready (copied if browser allowed) · $${t}. Email that file/text to complete payment offline until checkout is wired.`;
     }
 
     form.reset();
     document.querySelectorAll(".addon-input").forEach((el) => {
       el.checked = false;
     });
-    renderOrder();
+    render();
   });
 })();

@@ -1,11 +1,21 @@
-﻿# JC QuickTune – Custom MG1 Tune Storefront
+# JC QuickTune store page
 
-Static product page for the dual-mode B46/B48 MG1 street tune.
+Plain product page for the dual-mode B46/B48 MG1 full-flash tune.
 
-**Live site:** https://chavezsd92-source.github.io/jc-quicktune-store/
+**Live:** https://chavezsd92-source.github.io/jc-quicktune-store/
 
-## Local preview
-Open `index.html` in a browser.
+## Requirements called out on the site
+
+- Full BIN flash (not partial)
+- DME already unlocked (B48 Quickflash or similar)
+- Stock backup before flash
 
 ## Deploy
-Pushed to `main`; GitHub Pages serves from the root of `main`.
+
+```powershell
+git add .
+git commit -m "Update store page"
+git push
+```
+
+GitHub Pages serves from `main` root.
