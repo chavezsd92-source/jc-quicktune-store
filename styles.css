@@ -222,6 +222,15 @@ body {
   color: var(--muted);
 }
 
+.mod-note {
+  margin: 0.65rem 0 0;
+  padding: 0.55rem 0.65rem;
+  background: #f0f4ff;
+  border: 1px solid #b6c6e8;
+  color: #1e3a5f;
+  line-height: 1.45;
+}
+
 .plain {
   width: 100%;
   border-collapse: collapse;

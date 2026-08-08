@@ -75,6 +75,17 @@
 
     const list = addons();
     const t = total();
+    const hardware = String(fd.get("hardware") || "");
+    const notes = String(fd.get("notes") || "").trim();
+    if (hardware === "modified" && notes.length < 8) {
+      if (statusEl) {
+        statusEl.className = "status err";
+        statusEl.textContent =
+          "Modified car — list every mod in Notes (intake, DP, IC, exhaust, fuel, etc.).";
+      }
+      return;
+    }
+
     const order = {
       product: "JC dual-mode full flash base",
       base: BASE,
@@ -86,9 +97,11 @@
       software: fd.get("software"),
       unlock: unlock,
       tool: fd.get("tool"),
-      notes: fd.get("notes"),
+      hardware: hardware,
+      notes: notes,
       fullFlashAcknowledged: true,
       stockBackupAcknowledged: true,
+      stockBaseline: hardware === "all-stock",
       createdAt: new Date().toISOString(),
     };
 
@@ -114,11 +127,13 @@
       `SWFL/SWFK: ${order.software}`,
       `Unlock: ${order.unlock}`,
       `Flash tool: ${order.tool}`,
-      `Notes: ${order.notes || "—"}`,
+      `Hardware: ${order.hardware}`,
+      `Notes / mods: ${order.notes || "—"}`,
       "",
       "Customer confirmed: full BIN flash required",
       "Customer confirmed: stock BIN backup",
       "DME must already be unlocked (Quickflash or similar)",
+      "Power figures on site are for all-stock hardware",
     ].join("\n");
 
     if (navigator.clipboard?.writeText) {

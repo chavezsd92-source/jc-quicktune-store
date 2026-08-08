@@ -63,7 +63,10 @@
         </div>
         <div class="note-card">
           <h2>Numbers from our car</h2>
-          <p class="small">2017-class 230i · ZF8 · stock turbo · 93 AKI · full dual-mode stack with limits holding.</p>
+          <p class="small">
+            <strong>All-stock hardware</strong> · 2017-class 230i · ZF8 · stock turbo / intake / exhaust / cooling
+            · 93 AKI · full dual-mode stack with limits holding.
+          </p>
           <table class="plain">
             <tr><td>Peak power</td><td><strong>~355 hp</strong> / <strong>~300 rwhp</strong></td></tr>
             <tr><td>Peak torque</td><td><strong>~335 lb-ft</strong> (engine)</td></tr>
@@ -72,9 +75,14 @@
             <tr><td>Clutch TQ (logged)</td><td><strong>~430–450 Nm</strong> after unlock</td></tr>
           </table>
           <p class="small dim">
-            Derived from Quickflash WOT traces + clutch-torque channel with the raised torque/load caps
-            holding under load — not a chassis-dyno certificate, but these are our solid working numbers
-            for this exact stack on this car.
+            These estimates are for an <strong>all-stock car</strong> only — same setup we logged.
+            Not a chassis-dyno certificate, but solid working numbers when hardware matches.
+          </p>
+          <p class="small mod-note">
+            <strong>Mods matter.</strong> Downpipe, intake, intercooler, charge pipe, exhaust, ethanol,
+            bigger turbo, upgraded clutch/TCU, etc. change airflow, fueling, and torque limits.
+            List every modification when you order so the BIN can be built accurately — don’t assume
+            a stock calibration is correct for a modified car.
           </p>
         </div>
       </div>
@@ -139,6 +147,13 @@
           <li>
             <strong>Read and save stock.</strong>
             Keep the original BIN offline. If something goes sideways, that’s your way home.
+          </li>
+          <li>
+            <strong>Tell us if the car is stock or not.</strong>
+            Base numbers and the default calibration assume <strong>all-stock</strong> hardware
+            (stock turbo, intake, exhaust, cooling, fuel system). Any bolt-ons or fuel changes must be
+            listed up front so fueling, boost, and limits can be adjusted. Guessing wrong is how you get
+            knock, limp, or a weak pull.
           </li>
           <li>
             <strong>Full flash this tune BIN.</strong>
@@ -295,8 +310,16 @@
             I have (or will take) a <strong>stock BIN backup</strong> before flashing.
           </label>
           <label>
-            Notes (octane, catless, what you want out of Sport)
-            <textarea name="notes" rows="3"></textarea>
+            Hardware — stock or list every mod
+            <select name="hardware" required>
+              <option value="">—</option>
+              <option value="all-stock">All stock (intake / turbo / exhaust / cooling / fuel)</option>
+              <option value="modified">Modified — I will list everything below</option>
+            </select>
+          </label>
+          <label>
+            Notes (octane, catless/downpipe, intake, IC, exhaust, ethanol, what you want from Sport)
+            <textarea name="notes" rows="3" placeholder="If modified: list every part. If stock: say 93 AKI and goals."></textarea>
           </label>
           <button type="submit" class="btn solid">
             Generate order · $<span id="submit-total">149</span>
@@ -324,6 +347,15 @@
 
           <dt>Fuel?</dt>
           <dd>Built around 93 AKI US premium. Don’t cheap out on 87 and then email about knock.</dd>
+
+          <dt>Is this for a stock car?</dt>
+          <dd>
+            Yes by default. The published power/torque figures and the base calibration assume
+            <strong>all-stock</strong> hardware. If you have any mods (downpipe, intake, intercooler,
+            exhaust, charge pipe, ethanol, turbo, clutch, etc.), list them when you order — accurate
+            tuning depends on that. Don’t flash a stock-oriented file on a heavily modified car and
+            expect it to be right.
+          </dd>
         </dl>
       </div>
     </section>
