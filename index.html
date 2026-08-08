@@ -48,8 +48,7 @@
           <p class="kicker">From the same stack we run on a daily 230i</p>
           <h1>Custom MG1 tune for B46/B48 — Comfort for the week, Sport when you want noise.</h1>
           <p class="intro">
-            I got tired of “Stage 1” files that crackle in traffic, dump fuel on every lift, and then limp
-            when you actually put your foot down. So this one is built the other way:
+            A lot of Stage 1 files force one personality all the time. This one is built the other way:
             quiet and thriftier in Comfort / default, and only mean in Sport / Sport+.
           </p>
           <p class="intro">
@@ -122,26 +121,23 @@
             <p>
               This is where the burble duration and ignition crackle live. Pedal maps are snappy but
               smoothed so tip-in isn’t a light-switch. Throttle aggression is firm, not violent.
-              Torque / load ceilings are raised the way commercial files do — including the annoying
-              stock caps that leave you stuck around ~399 Nm while the “power tables” look higher on paper.
-            </p>
-            <p>
-              Also includes the <code>1F053C</code> max-acceleration safety work. We hit drivetrain limp
-              twice after raising torque ceilings hard — before that fix was sorted. You probably don’t want that surprise.
+              Torque and load ceilings are raised properly so the car can actually deliver the power
+              the rest of the calibration is built for — with matching acceleration safety limits
+              so hard pulls stay clean under the DME’s drive-safety checks.
             </p>
           </div>
         </div>
 
         <div class="truth">
-          <h3>Honest list (not a feature matrix)</h3>
+          <h3>What’s in the base flash</h3>
           <ul>
             <li>Dual personality: quiet Comfort, loud Sport paths</li>
             <li>Full BIN delivery for MG1 full-flash tools (DME must already be unlocked — see requirements)</li>
-            <li>Torque &amp; load ceilings raised past stock actual-torque caps</li>
+            <li>Raised torque &amp; load ceilings for Stage-class delivery on stock hardware</li>
             <li>Sport burble pack (duration + timing offsets)</li>
-            <li>Accel safety calibration for the “max acceleration exceeded” limp</li>
+            <li>Drive-safety / acceleration limit calibration for high-output street use</li>
             <li>Optional Texas cooling pack, spicier pedal, louder burble, log review</li>
-            <li>One free revision within 14 days if something’s clearly off for your car</li>
+            <li>One free revision within 14 days if you need a small adjustment after driving it</li>
           </ul>
         </div>
       </div>
@@ -165,8 +161,7 @@
             <strong>Tell us if the car is stock or not.</strong>
             Base numbers and the default calibration assume <strong>all-stock</strong> hardware
             (stock turbo, intake, exhaust, cooling, fuel system). Any bolt-ons or fuel changes must be
-            listed up front so fueling, boost, and limits can be adjusted. Guessing wrong is how you get
-            knock, limp, or a weak pull.
+            listed up front so fueling, boost, and limits can be adjusted correctly.
           </li>
           <li>
             <strong>Full flash this tune BIN.</strong>
