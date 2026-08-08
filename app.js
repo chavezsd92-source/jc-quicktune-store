@@ -87,7 +87,7 @@
     }
 
     const order = {
-      product: "JC dual-mode full flash base",
+      product: "JC Stage 1 dual-mode full flash base",
       base: BASE,
       addons: list,
       total: t,
@@ -118,7 +118,7 @@
       "JC QuickTune — order request",
       "===========================",
       `Total: $${t}`,
-      `Base dual-mode full flash: $${BASE}`,
+      `Base Stage 1 dual-mode full flash: $${BASE}`,
       ...list.map((a) => `Add-on: ${a.name} (+$${a.price})`),
       "",
       `Name: ${order.name}`,
