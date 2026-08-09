@@ -30,8 +30,9 @@
     </div>
   </header>
 
+  <!-- Compact warning only — rest of page is roomy -->
   <aside class="banner-warn" id="requirements">
-    <div class="inner">
+    <div class="inner banner-warn-inner">
       <strong>Before you flash</strong>
       <ul>
         <li>This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
@@ -63,19 +64,19 @@
           </p>
 
           <div class="stat-pills">
-            <div class="stat-pill">
+            <div class="stat-pill glass-card">
               <div>
                 <strong>~285–295</strong>
                 <small>rwhp</small>
               </div>
             </div>
-            <div class="stat-pill">
+            <div class="stat-pill glass-card">
               <div>
                 <strong>~335–355</strong>
                 <small>lb-ft wheels</small>
               </div>
             </div>
-            <div class="stat-pill glow">
+            <div class="stat-pill glass-card glow">
               <div>
                 <strong>$149</strong>
                 <small>base Stage 1</small>
@@ -90,9 +91,14 @@
               <p>Extensive testing &amp; datalogs · all-stock baseline · list mods when ordering</p>
             </div>
           </div>
+
+          <p class="mod-note glass-card">
+            <strong>Mods matter.</strong> Downpipe, intake, intercooler, exhaust, ethanol, turbo work —
+            anything that changes air or fuel. List every modification when you order so the BIN can be built accurately.
+          </p>
         </div>
 
-        <div class="chat-panel anim-in delay-1" id="chat-panel">
+        <div class="chat-panel glass-card anim-in delay-1" id="chat-panel">
           <div class="chat-head">
             <div class="chat-head-left">
               <span class="chat-avatar" aria-hidden="true">JC</span>
@@ -124,7 +130,7 @@
         <div class="anim-in">
           <h2>Your build</h2>
           <p class="intro">Filled as you chat. Edit by talking — or tick add-ons manually.</p>
-          <dl class="build-facts" id="build-facts">
+          <dl class="build-facts glass-card" id="build-facts">
             <div><dt>Vehicle</dt><dd id="fact-vehicle">—</dd></div>
             <div><dt>Hardware</dt><dd id="fact-hardware">—</dd></div>
             <div><dt>Fuel</dt><dd id="fact-fuel">—</dd></div>
@@ -133,12 +139,12 @@
             <div><dt>Software</dt><dd id="fact-software">—</dd></div>
           </dl>
         </div>
-        <div class="package-card anim-in delay-1">
+        <div class="package-card glass-card anim-in delay-1">
           <h3>Package · <span id="pkg-total">$149</span></h3>
           <ul class="pkg-lines" id="pkg-lines">
             <li><span>Stage 1 dual-mode base</span><span>$149</span></li>
           </ul>
-          <div class="addon-list compact" id="manual-addons">
+          <div class="addon-list" id="manual-addons">
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="49" data-name="Texas Max Cooling" data-key="cooling" />
               <span class="addon-price">+$49</span>
@@ -178,13 +184,23 @@
     <section class="block" id="what">
       <div class="inner">
         <h2>Stage 1 dual-mode, on the fly</h2>
+        <p class="lead-inline">
+          A real <strong>Stage 1</strong> full-flash calibration with two personalities on one file —
+          switch them on the fly with the car’s drive mode. No laptop mid-drive.
+        </p>
+
         <div class="mode-cards">
-          <article class="mode-card comfort anim-in">
+          <article class="mode-card comfort glass-card anim-in">
             <div class="mode-icon" aria-hidden="true">C</div>
             <h3>Comfort / daily</h3>
             <p>
-              Quieter overrun, calmer manners, part-load bias for commuting and highway.
-              Stage 1 headroom is still there if you dig deep — Comfort just doesn’t shout about it.
+              Flip out of Sport and the car settles into a true daily personality —
+              calmer manners, quieter overrun, and part-load behavior aimed at commuting
+              and highway cruising without wasting fuel on show-car theatrics.
+            </p>
+            <p>
+              You still have Stage 1 headroom if you dig deep. Comfort just stops shouting about it
+              until you ask for Sport again.
             </p>
             <ul class="mode-points">
               <li>Quieter lift-off</li>
@@ -192,13 +208,18 @@
               <li>Still has power if needed</li>
             </ul>
           </article>
-          <article class="mode-card sport anim-in delay-1">
+          <article class="mode-card sport glass-card anim-in delay-1">
             <div class="mode-icon" aria-hidden="true">S</div>
             <h3>Sport / Sport+</h3>
             <p>
-              Immediate tip-in, sharp part-throttle, hard acceleration when you lean on it,
-              plus strong burbles on lift. Flip the drive mode and the whole personality changes —
-              no reflash, no laptop.
+              This is where it gets addictive. Tip-in is immediate — you feel the throttle wake up
+              the second you lean on it. Part-throttle is sharp and connected, and when you dig in,
+              acceleration hits hard and fast so the pull is right now.
+            </p>
+            <p>
+              Sport and Sport+ also bring the soundtrack: strong burbles and crackle on lift,
+              with a pedal map tuned snappy and alive. Same car, whole different attitude —
+              ready the moment you switch modes.
             </p>
             <ul class="mode-points">
               <li>Throttle response you feel now</li>
@@ -207,7 +228,8 @@
             </ul>
           </article>
         </div>
-        <div class="personality anim-in delay-2">
+
+        <div class="personality glass-card anim-in delay-2">
           <h3>One Stage 1 flash. Whole personality — on the fly.</h3>
           <p>
             Comfort when you’re saving fuel and nerves. Sport when you want instant throttle,
@@ -215,22 +237,68 @@
             Just change the mode and go.
           </p>
         </div>
+
+        <div class="truth glass-card anim-in delay-2">
+          <h3>What’s in the base Stage 1 flash</h3>
+          <ul>
+            <li>Stage 1 power delivery on all-stock hardware (93 AKI)</li>
+            <li>Dual personality: quiet Comfort, aggressive Sport / Sport+</li>
+            <li>Improved throttle response and acceleration you feel immediately in Sport</li>
+            <li>Sport burble pack (duration + timing)</li>
+            <li>Raised torque &amp; load ceilings for real Stage 1 output</li>
+            <li>Drive-safety / acceleration limit calibration for high-output street use</li>
+            <li>Full BIN for MG1 full-flash tools (DME must already be unlocked)</li>
+            <li>One free revision within 14 days if you need a small adjustment after driving it</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="block muted-bg" id="order">
+    <section class="block muted-bg" id="flash">
+      <div class="inner">
+        <h2>Flash requirements</h2>
+        <ol class="steps glass-card">
+          <li>
+            <strong>DME unlock first.</strong>
+            Use B48 Quickflash (or equivalent). The DME must already be unlocked for full flash.
+            This BIN does not unlock a locked DME.
+          </li>
+          <li>
+            <strong>Read and save stock.</strong>
+            Keep the original BIN offline.
+          </li>
+          <li>
+            <strong>Tell us stock vs modified.</strong>
+            Base Stage 1 numbers assume <strong>all-stock</strong> hardware. List every bolt-on or fuel change up front.
+          </li>
+          <li>
+            <strong>Full flash this tune BIN.</strong>
+            Partial writes are not supported. Send your SWFL/SWFK from Quickflash before we deliver a file.
+          </li>
+          <li>
+            <strong>Stable power + aftercare.</strong>
+            Battery tender recommended. After flash: clear DTCs, clear DME adaptations once, easy miles first.
+          </li>
+        </ol>
+        <p class="callout glass-card">
+          If the DME is still locked, stop here. We’re selling the Stage 1 calibration — not a DME unlock service.
+        </p>
+      </div>
+    </section>
+
+    <section class="block" id="order">
       <div class="inner order-grid">
-        <div>
+        <div class="anim-in">
           <h2>Order</h2>
           <p class="intro">Chat builds most of this. Confirm and generate a plain-text order.</p>
-          <div class="totals">
+          <div class="totals glass-card">
             <div class="totals-row"><span>Base Stage 1</span><span>$149</span></div>
             <ul id="order-lines" class="order-lines"></ul>
             <div class="totals-row big"><span>Total</span><strong id="order-total">$149</strong></div>
           </div>
         </div>
 
-        <form id="order-form" class="order-form">
+        <form id="order-form" class="order-form glass-card anim-in delay-1">
           <label>Name<input name="name" required autocomplete="name" /></label>
           <label>Email<input type="email" name="email" required autocomplete="email" /></label>
           <label>Car<input name="vehicle" id="order-vehicle" required placeholder="2017 F22 230i · ZF8" /></label>
@@ -271,7 +339,7 @@
           </label>
           <label>
             Notes / mods / goals
-            <textarea name="notes" id="order-notes" rows="3"></textarea>
+            <textarea name="notes" id="order-notes" rows="4"></textarea>
           </label>
           <button type="submit" class="btn solid">
             Generate order · $<span id="submit-total">149</span>
@@ -281,10 +349,10 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block muted-bg">
       <div class="inner">
         <h2>FAQ</h2>
-        <dl class="faq">
+        <dl class="faq glass-card">
           <dt>Is this Stage 1?</dt>
           <dd>Yes — Stage 1 full-flash for all-stock B46/B48 MG1 on 93, with Comfort / Sport dual personality.</dd>
           <dt>Does the chat use Grok?</dt>
