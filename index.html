@@ -22,24 +22,24 @@
         <span class="logo-badge">Stage 1</span>
       </a>
       <nav>
-        <a href="#builder">💬 Build</a>
-        <a href="#what">⚡ About</a>
-        <a href="#requirements">⚠️ Requirements</a>
-        <a href="#order">🧾 Order</a>
+        <a href="#builder">Build</a>
+        <a href="#what">About</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#order">Order</a>
       </nav>
     </div>
   </header>
 
   <aside class="banner-warn" id="requirements">
     <div class="inner">
-      <strong>⚠️ Before you flash</strong>
+      <strong>Before you flash</strong>
       <ul>
-        <li>📦 This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
+        <li>This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
         <li>
-          🔓 <strong>DME must already be unlocked</strong> for full flash (B48 Quickflash or similar).
+          <strong>DME must already be unlocked</strong> for full flash (B48 Quickflash or similar).
           This file does not unlock a locked DME.
         </li>
-        <li>💾 Keep a <strong>stock BIN backup</strong>. List every hardware mod when you order.</li>
+        <li>Keep a <strong>stock BIN backup</strong>. List every hardware mod when you order.</li>
       </ul>
     </div>
   </aside>
@@ -48,7 +48,7 @@
     <section class="hero" id="builder">
       <div class="inner hero-grid">
         <div class="hero-copy anim-in">
-          <p class="kicker">🏁 Stage 1 · same stack we run on a daily 230i</p>
+          <p class="kicker">Stage 1 · same stack we run on a daily 230i</p>
           <h1>
             Custom MG1 Stage 1 for B46/B48 —
             <span class="accent-line">Comfort for the week, Sport when you want noise.</span>
@@ -60,21 +60,18 @@
 
           <div class="stat-pills">
             <div class="stat-pill">
-              <span class="stat-ico">🏎️</span>
               <div>
                 <strong>~285–295</strong>
                 <small>rwhp</small>
               </div>
             </div>
             <div class="stat-pill">
-              <span class="stat-ico">💪</span>
               <div>
                 <strong>~335–355</strong>
                 <small>lb-ft wheels</small>
               </div>
             </div>
             <div class="stat-pill glow">
-              <span class="stat-ico">💵</span>
               <div>
                 <strong>$149</strong>
                 <small>base Stage 1</small>
@@ -85,7 +82,7 @@
           <div class="verify-badge">
             <img src="assets/jc-street-dyno-logo.png" alt="JC Street Dyno" class="verify-logo" width="52" height="18" />
             <div class="verify-copy">
-              <strong>✓ Verified with JC Street Dyno</strong><span class="copy-mark">©</span>
+              <strong>Verified with JC Street Dyno</strong><span class="copy-mark">©</span>
               <p>Extensive testing &amp; datalogs · all-stock baseline · list mods when ordering</p>
             </div>
           </div>
@@ -94,16 +91,16 @@
         <div class="chat-panel anim-in delay-1" id="chat-panel">
           <div class="chat-head">
             <div class="chat-head-left">
-              <span class="chat-avatar" aria-hidden="true">🛠️</span>
+              <span class="chat-avatar" aria-hidden="true">JC</span>
               <div>
                 <strong>Stage 1 builder</strong>
                 <span class="chat-sub" id="chat-mode-label">Chat to build your flash · next steps below</span>
               </div>
             </div>
-            <button type="button" class="btn ghost sm" id="chat-reset" title="Start over">↺ Reset</button>
+            <button type="button" class="btn ghost sm" id="chat-reset" title="Start over">Reset</button>
           </div>
           <div class="chat-log" id="chat-log" aria-live="polite"></div>
-          <div class="suggest-label">💡 Next steps</div>
+          <div class="suggest-label">Next steps</div>
           <div class="suggest-row" id="suggest-row"></div>
           <form class="chat-input-row" id="chat-form">
             <input
@@ -112,7 +109,7 @@
               autocomplete="off"
               placeholder="e.g. 2017 230i auto, all stock, 93, want Sport burbles…"
             />
-            <button type="submit" class="btn solid sm">Send ➤</button>
+            <button type="submit" class="btn solid sm">Send</button>
           </form>
         </div>
       </div>
@@ -121,52 +118,52 @@
     <section class="block muted-bg" id="package">
       <div class="inner package-grid">
         <div class="anim-in">
-          <h2>📋 Your build</h2>
+          <h2>Your build</h2>
           <p class="intro">Filled as you chat. Edit by talking — or tick add-ons manually.</p>
           <dl class="build-facts" id="build-facts">
-            <div><dt>🚗 Vehicle</dt><dd id="fact-vehicle">—</dd></div>
-            <div><dt>🔧 Hardware</dt><dd id="fact-hardware">—</dd></div>
-            <div><dt>⛽ Fuel</dt><dd id="fact-fuel">—</dd></div>
-            <div><dt>🎯 Goals</dt><dd id="fact-goals">—</dd></div>
-            <div><dt>🔓 DME unlock</dt><dd id="fact-unlock">—</dd></div>
-            <div><dt>💾 Software</dt><dd id="fact-software">—</dd></div>
+            <div><dt>Vehicle</dt><dd id="fact-vehicle">—</dd></div>
+            <div><dt>Hardware</dt><dd id="fact-hardware">—</dd></div>
+            <div><dt>Fuel</dt><dd id="fact-fuel">—</dd></div>
+            <div><dt>Goals</dt><dd id="fact-goals">—</dd></div>
+            <div><dt>DME unlock</dt><dd id="fact-unlock">—</dd></div>
+            <div><dt>Software</dt><dd id="fact-software">—</dd></div>
           </dl>
         </div>
         <div class="package-card anim-in delay-1">
-          <h3>🛒 Package · <span id="pkg-total">$149</span></h3>
+          <h3>Package · <span id="pkg-total">$149</span></h3>
           <ul class="pkg-lines" id="pkg-lines">
-            <li><span>🏁 Stage 1 dual-mode base</span><span>$149</span></li>
+            <li><span>Stage 1 dual-mode base</span><span>$149</span></li>
           </ul>
           <div class="addon-list compact" id="manual-addons">
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="49" data-name="Texas Max Cooling" data-key="cooling" />
               <span class="addon-price">+$49</span>
-              <span class="addon-text"><strong>🌡️ Texas Max Cooling</strong></span>
+              <span class="addon-text"><strong>Texas Max Cooling</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="39" data-name="Extra Crackle Burble" data-key="burble" />
               <span class="addon-price">+$39</span>
-              <span class="addon-text"><strong>💥 Extra Crackle Burble+</strong></span>
+              <span class="addon-text"><strong>Extra Crackle Burble+</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="59" data-name="Spicy Pedal Sport" data-key="spicy" />
               <span class="addon-price">+$59</span>
-              <span class="addon-text"><strong>⚡ Spicy Pedal Sport</strong></span>
+              <span class="addon-text"><strong>Spicy Pedal Sport</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="79" data-name="High Torque Package" data-key="torque" />
               <span class="addon-price">+$79</span>
-              <span class="addon-text"><strong>🚀 High Torque Package</strong></span>
+              <span class="addon-text"><strong>High Torque Package</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="29" data-name="Log Review Session" data-key="logs" />
               <span class="addon-price">+$29</span>
-              <span class="addon-text"><strong>📊 Post-flash log review</strong></span>
+              <span class="addon-text"><strong>Post-flash log review</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="99" data-name="Priority Custom Revision" data-key="priority" />
               <span class="addon-price">+$99</span>
-              <span class="addon-text"><strong>⏱️ Priority revision</strong></span>
+              <span class="addon-text"><strong>Priority revision</strong></span>
             </label>
           </div>
           <a class="btn solid" href="#order">Continue to order →</a>
@@ -176,10 +173,10 @@
 
     <section class="block" id="what">
       <div class="inner">
-        <h2>⚡ Stage 1 dual-mode, on the fly</h2>
+        <h2>Stage 1 dual-mode, on the fly</h2>
         <div class="mode-cards">
           <article class="mode-card comfort anim-in">
-            <div class="mode-icon">🌿</div>
+            <div class="mode-icon" aria-hidden="true">C</div>
             <h3>Comfort / daily</h3>
             <p>
               Quieter overrun, calmer manners, part-load bias for commuting and highway.
@@ -192,7 +189,7 @@
             </ul>
           </article>
           <article class="mode-card sport anim-in delay-1">
-            <div class="mode-icon">🔥</div>
+            <div class="mode-icon" aria-hidden="true">S</div>
             <h3>Sport / Sport+</h3>
             <p>
               Immediate tip-in, sharp part-throttle, hard acceleration when you lean on it,
@@ -207,7 +204,7 @@
           </article>
         </div>
         <div class="personality anim-in delay-2">
-          <h3>🔄 One Stage 1 flash. Whole personality — on the fly.</h3>
+          <h3>One Stage 1 flash. Whole personality — on the fly.</h3>
           <p>
             Comfort when you’re saving fuel and nerves. Sport when you want instant throttle,
             hard acceleration, and the noise to match. No reflash. No juggling files.
@@ -220,10 +217,10 @@
     <section class="block muted-bg" id="order">
       <div class="inner order-grid">
         <div>
-          <h2>🧾 Order</h2>
+          <h2>Order</h2>
           <p class="intro">Chat builds most of this. Confirm and generate a plain-text order.</p>
           <div class="totals">
-            <div class="totals-row"><span>🏁 Base Stage 1</span><span>$149</span></div>
+            <div class="totals-row"><span>Base Stage 1</span><span>$149</span></div>
             <ul id="order-lines" class="order-lines"></ul>
             <div class="totals-row big"><span>Total</span><strong id="order-total">$149</strong></div>
           </div>
@@ -282,7 +279,7 @@
 
     <section class="block">
       <div class="inner">
-        <h2>❓ FAQ</h2>
+        <h2>FAQ</h2>
         <dl class="faq">
           <dt>Is this Stage 1?</dt>
           <dd>Yes — Stage 1 full-flash for all-stock B46/B48 MG1 on 93, with Comfort / Sport dual personality.</dd>

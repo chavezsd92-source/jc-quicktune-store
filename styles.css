@@ -377,22 +377,28 @@ a {
 }
 
 .mode-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   display: grid;
   place-items: center;
-  font-size: 1.1rem;
-  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  border-radius: 7px;
   margin-bottom: 0.4rem;
   background: rgba(61, 139, 253, 0.12);
+  color: var(--primary);
+  line-height: 1;
 }
 
 .mode-card.comfort .mode-icon {
   background: rgba(62, 207, 142, 0.12);
+  color: var(--ok);
 }
 
 .mode-card.sport .mode-icon {
   background: rgba(240, 180, 41, 0.12);
+  color: var(--warn);
 }
 
 .mode-card p {
@@ -419,14 +425,19 @@ a {
 }
 
 .chat-avatar {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.65rem;
+  height: 1.65rem;
   display: grid;
   place-items: center;
-  border-radius: 8px;
+  border-radius: 7px;
   background: rgba(61, 139, 253, 0.15);
   border: 1px solid rgba(61, 139, 253, 0.3);
-  font-size: 0.85rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .suggest-label {
@@ -1176,12 +1187,13 @@ a {
 .order-form textarea {
   font: inherit;
   font-weight: 400;
-  padding: 0.52rem 0.6rem;
+  padding: 0.4rem 0.5rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg2);
   color: var(--text);
   width: 100%;
+  font-size: 0.85rem;
 }
 
 .order-form input:focus,
@@ -1231,9 +1243,19 @@ a {
 
 /* Footer */
 .site-footer {
-  padding: 1.5rem 0 2.4rem;
+  padding: 1rem 0 1.5rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+}
+
+.msg-tag {
+  font-size: 0.62rem !important;
+  margin-bottom: 0.15rem !important;
+}
+
+.verify-badge {
+  margin-top: 0.4rem !important;
+  padding-top: 0.35rem !important;
 }
 
 .site-footer p {

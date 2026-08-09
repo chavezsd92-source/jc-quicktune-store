@@ -58,7 +58,7 @@
     const row = el("div", `msg msg-${role}`);
     const bubble = el("div", "msg-bubble");
     if (role === "assistant") {
-      const tag = el("div", "msg-tag", "🛠️ Tuner");
+      const tag = el("div", "msg-tag", "Tuner");
       bubble.appendChild(tag);
     }
     String(text)
