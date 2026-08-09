@@ -43,11 +43,16 @@
     const t = total();
     if (totalEl) totalEl.textContent = money(t);
     if (submitTotal) submitTotal.textContent = String(t);
+
+    const pkgTotal = document.getElementById("pkg-total");
+    if (pkgTotal) pkgTotal.textContent = money(t);
   }
 
   document.querySelectorAll(".addon-input").forEach((el) => {
     el.addEventListener("change", render);
   });
+
+  window.addEventListener("jcqt-package-change", render);
   render();
 
   form?.addEventListener("submit", (e) => {
@@ -67,8 +72,7 @@
     if (!fd.get("fullflash") || !fd.get("backup")) {
       if (statusEl) {
         statusEl.className = "status err";
-        statusEl.textContent =
-          "Check both boxes: full BIN flash + stock backup.";
+        statusEl.textContent = "Check both boxes: full BIN flash + stock backup.";
       }
       return;
     }
@@ -133,14 +137,13 @@
       "Customer confirmed: full BIN flash required",
       "Customer confirmed: stock BIN backup",
       "DME must already be unlocked (B48 Quickflash or similar) — not provided by this product",
-      "Power figures on site are for all-stock hardware (JC Street Dyno verified + datalogs)",
+      "Power figures: ~285-295 rwhp / ~335-355 lb-ft wheels (all-stock, JC Street Dyno verified)",
     ].join("\n");
 
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(text).catch(() => {});
     }
 
-    // Offer a downloadable .txt as a human fallback
     try {
       const blob = new Blob([text], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
@@ -155,8 +158,7 @@
 
     if (statusEl) {
       statusEl.className = "status ok";
-      statusEl.textContent =
-        `Order text ready (copied if browser allowed) · $${t}. Email that file/text to complete payment offline until checkout is wired.`;
+      statusEl.textContent = `Order text ready · $${t}. Email that text to complete payment offline.`;
     }
 
     form.reset();

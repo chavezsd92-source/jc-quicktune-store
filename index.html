@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="JC QuickTune Stage 1 full-flash for B46/B48 MG1. Comfort for the week, Sport when you want noise. $149. Full flash · DME must already be unlocked." />
-  <title>JC QuickTune — Stage 1 dual-mode B46/B48 flash</title>
+  <meta name="description" content="JC QuickTune Stage 1 dual-mode B46/B48 — build your flash by chat. Comfort daily, Sport when you want noise. $149." />
+  <title>JC QuickTune — Stage 1 builder chat</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="inner">
+    <div class="inner header-row">
       <a class="logo" href="#top">
         <img src="assets/jc-street-dyno-logo.png" alt="" class="logo-img" width="28" height="28" />
         <span>JC QuickTune</span>
       </a>
       <nav>
-        <a href="#what">What it is</a>
+        <a href="#builder">Build</a>
+        <a href="#what">About</a>
         <a href="#requirements">Requirements</a>
-        <a href="#pricing">Price</a>
         <a href="#order">Order</a>
       </nav>
     </div>
@@ -25,29 +25,24 @@
 
   <aside class="banner-warn" id="requirements">
     <div class="inner">
-      <strong>Read this before you buy.</strong>
+      <strong>Before you flash</strong>
       <ul>
+        <li>This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
         <li>
-          This is a <em>full BIN flash</em> — not a partial patch and not a phone-app overlay.
-          The whole calibration image gets written.
+          <strong>DME must already be unlocked</strong> for full flash (B48 Quickflash or similar).
+          This file does not unlock a locked DME.
         </li>
-        <li>
-          Your <strong>DME must already be unlocked</strong> for full flash by
-          <strong>B48 Quickflash</strong> or another tool that can write a full MG1 BIN.
-          If Quickflash still shows locked / unlock undetected, do not order expecting the file to unlock the DME — it won’t.
-        </li>
-        <li>
-          Keep a <strong>stock BIN backup</strong> before you flash. You’re responsible for the flash process and battery voltage.
-        </li>
+        <li>Keep a <strong>stock BIN backup</strong>. List every hardware mod when you order.</li>
       </ul>
     </div>
   </aside>
 
   <main id="top">
-    <section class="hero">
-      <div class="inner hero-row">
-        <div>
-          <p class="kicker">Stage 1 · from the same stack we run on a daily 230i</p>
+    <!-- HERO + BUILDER -->
+    <section class="hero" id="builder">
+      <div class="inner hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Stage 1 · same stack we run on a daily 230i</p>
           <h1>Custom MG1 Stage 1 for B46/B48 — Comfort for the week, Sport when you want noise.</h1>
           <p class="intro">
             A lot of Stage 1 files force one personality all the time. This one is built the other way:
@@ -55,207 +50,120 @@
           </p>
           <p class="intro">
             Built on 93 AKI, hot weather, and a lot of real street pulls — not brochure fantasy.
+            Chat below like you’d talk to a tuner: car, goals, burbles, cooling. We’ll shape the package and suggest next steps.
           </p>
           <p class="price-line">
-            Base Stage 1 flash <strong>$149</strong>
-            <a class="btn" href="#order">Build order ↓</a>
+            Base Stage 1 <strong>$149</strong>
+            <span class="pill">~285–295 rwhp · ~335–355 lb-ft wheels</span>
           </p>
-        </div>
-
-        <div class="note-card">
-          <p class="stage-tag">Stage 1 · all-stock hardware</p>
-          <h2>Numbers from our car</h2>
-          <p class="small">
-            2017-class 230i · ZF8 · stock turbo / intake / exhaust / cooling · 93 AKI
-          </p>
-          <table class="plain">
-            <tr><td>Peak power</td><td><strong>~285–295 rwhp</strong></td></tr>
-            <tr><td>Peak torque</td><td><strong>~335–355 lb-ft</strong> wheels</td></tr>
-          </table>
           <div class="verify-badge">
-            <img
-              src="assets/jc-street-dyno-logo.png"
-              alt="JC Street Dyno"
-              width="56"
-              height="20"
-              class="verify-logo"
-            />
+            <img src="assets/jc-street-dyno-logo.png" alt="JC Street Dyno" class="verify-logo" width="52" height="18" />
             <div class="verify-copy">
-              <strong>Verified with JC Street Dyno</strong>
-              <span class="copy-mark">©</span>
+              <strong>Verified with JC Street Dyno</strong><span class="copy-mark">©</span>
               <p>Extensive testing &amp; datalogs · all-stock baseline · list mods when ordering</p>
             </div>
           </div>
-          <p class="small mod-note">
-            <strong>Mods matter.</strong> Downpipe, intake, intercooler, exhaust, ethanol, turbo work —
-            anything that changes air or fuel. List every modification when you order so the BIN can be built accurately.
-          </p>
+        </div>
+
+        <div class="chat-panel" id="chat-panel">
+          <div class="chat-head">
+            <div>
+              <strong>Stage 1 builder</strong>
+              <span class="chat-sub" id="chat-mode-label">Online when Grok API is configured · offline builder always works</span>
+            </div>
+            <button type="button" class="btn ghost sm" id="chat-reset" title="Start over">Reset</button>
+          </div>
+          <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <div class="suggest-row" id="suggest-row"></div>
+          <form class="chat-input-row" id="chat-form">
+            <input
+              type="text"
+              id="chat-input"
+              autocomplete="off"
+              placeholder="e.g. 2017 230i auto, all stock, 93, want Sport burbles…"
+            />
+            <button type="submit" class="btn solid sm">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE PACKAGE -->
+    <section class="block muted-bg" id="package">
+      <div class="inner package-grid">
+        <div>
+          <h2>Your build</h2>
+          <p class="intro">Filled as you chat. Edit by talking — or tick add-ons manually.</p>
+          <dl class="build-facts" id="build-facts">
+            <div><dt>Vehicle</dt><dd id="fact-vehicle">—</dd></div>
+            <div><dt>Hardware</dt><dd id="fact-hardware">—</dd></div>
+            <div><dt>Fuel</dt><dd id="fact-fuel">—</dd></div>
+            <div><dt>Goals</dt><dd id="fact-goals">—</dd></div>
+            <div><dt>DME unlock</dt><dd id="fact-unlock">—</dd></div>
+            <div><dt>Software</dt><dd id="fact-software">—</dd></div>
+          </dl>
+        </div>
+        <div class="package-card">
+          <h3>Package · <span id="pkg-total">$149</span></h3>
+          <ul class="pkg-lines" id="pkg-lines">
+            <li><span>Stage 1 dual-mode base</span><span>$149</span></li>
+          </ul>
+          <div class="addon-list compact" id="manual-addons">
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="49" data-name="Texas Max Cooling" data-key="cooling" />
+              <span class="addon-price">+$49</span>
+              <span class="addon-text"><strong>Texas Max Cooling</strong></span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="39" data-name="Extra Crackle Burble" data-key="burble" />
+              <span class="addon-price">+$39</span>
+              <span class="addon-text"><strong>Extra Crackle Burble+</strong></span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="59" data-name="Spicy Pedal Sport" data-key="spicy" />
+              <span class="addon-price">+$59</span>
+              <span class="addon-text"><strong>Spicy Pedal Sport</strong></span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="79" data-name="High Torque Package" data-key="torque" />
+              <span class="addon-price">+$79</span>
+              <span class="addon-text"><strong>High Torque Package</strong></span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="29" data-name="Log Review Session" data-key="logs" />
+              <span class="addon-price">+$29</span>
+              <span class="addon-text"><strong>Post-flash log review</strong></span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" class="addon-input" data-price="99" data-name="Priority Custom Revision" data-key="priority" />
+              <span class="addon-price">+$99</span>
+              <span class="addon-text"><strong>Priority revision</strong></span>
+            </label>
+          </div>
+          <a class="btn solid" href="#order">Continue to order →</a>
         </div>
       </div>
     </section>
 
     <section class="block" id="what">
       <div class="inner">
-        <h2>What you’re actually getting</h2>
-        <p class="lead-inline">
-          A real <strong>Stage 1</strong> full-flash calibration with two personalities on one file —
-          switch them on the fly with the car’s drive mode. No laptop mid-drive.
-        </p>
-
+        <h2>Stage 1 dual-mode, on the fly</h2>
         <div class="two-col">
           <div>
             <h3>Comfort / daily</h3>
             <p>
-              Flip out of Sport and the car settles into a true daily personality —
-              calmer manners, quieter overrun, and part-load behavior aimed at commuting
-              and highway cruising without wasting fuel on show-car theatrics.
-            </p>
-            <p>
-              You still have Stage 1 headroom if you dig deep. Comfort just stops shouting about it
-              until you ask for Sport again.
+              Quieter overrun, calmer manners, part-load bias for commuting and highway.
+              Stage 1 headroom is still there if you dig deep — Comfort just doesn’t shout about it.
             </p>
           </div>
           <div>
             <h3>Sport / Sport+</h3>
             <p>
-              This is where it gets addictive. Tip-in is immediate — you feel the throttle wake up
-              the second you lean on it. Part-throttle is sharp and connected, and when you dig in,
-              acceleration hits hard and fast so the pull is right now.
-            </p>
-            <p>
-              Sport and Sport+ also bring the soundtrack: strong burbles and crackle on lift,
-              with a pedal map tuned snappy and alive. Same car, whole different attitude —
-              ready the moment you switch modes.
+              Immediate tip-in, sharp part-throttle, hard acceleration when you lean on it,
+              plus strong burbles on lift. Flip the drive mode and the whole personality changes —
+              no reflash, no laptop.
             </p>
           </div>
-        </div>
-
-        <div class="personality">
-          <h3>One Stage 1 flash. Whole personality — on the fly.</h3>
-          <p>
-            Comfort when you’re saving fuel and nerves. Sport when you want instant throttle,
-            hard acceleration, and the noise to match. No reflash. No juggling files.
-            Just change the mode and go.
-          </p>
-        </div>
-
-        <div class="truth">
-          <h3>What’s in the base Stage 1 flash</h3>
-          <ul>
-            <li>Stage 1 power delivery on all-stock hardware (93 AKI)</li>
-            <li>Dual personality: quiet Comfort, aggressive Sport / Sport+</li>
-            <li>Improved throttle response and acceleration you feel immediately in Sport</li>
-            <li>Sport burble pack (duration + timing)</li>
-            <li>Raised torque &amp; load ceilings for real Stage 1 output</li>
-            <li>Drive-safety / acceleration limit calibration for high-output street use</li>
-            <li>Full BIN for MG1 full-flash tools (DME must already be unlocked)</li>
-            <li>One free revision within 14 days if you need a small adjustment after driving it</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="block muted-bg" id="flash">
-      <div class="inner">
-        <h2>Flash requirements</h2>
-        <ol class="steps">
-          <li>
-            <strong>DME unlock first.</strong>
-            Use B48 Quickflash (or equivalent). The DME must already be unlocked for full flash.
-            This BIN does not unlock a locked DME.
-          </li>
-          <li>
-            <strong>Read and save stock.</strong>
-            Keep the original BIN offline.
-          </li>
-          <li>
-            <strong>Tell us stock vs modified.</strong>
-            Base Stage 1 numbers assume <strong>all-stock</strong> hardware. List every bolt-on or fuel change up front.
-          </li>
-          <li>
-            <strong>Full flash this tune BIN.</strong>
-            Partial writes are not supported. Send your SWFL/SWFK from Quickflash before we deliver a file.
-          </li>
-          <li>
-            <strong>Stable power + aftercare.</strong>
-            Battery tender recommended. After flash: clear DTCs, clear DME adaptations once, easy miles first.
-          </li>
-        </ol>
-        <p class="callout">
-          If the DME is still locked, stop here. We’re selling the Stage 1 calibration — not a DME unlock service.
-        </p>
-      </div>
-    </section>
-
-    <section class="block" id="pricing">
-      <div class="inner">
-        <h2>Pricing</h2>
-        <p class="intro">
-          Base Stage 1 is <strong>$149</strong> for an all-stock dual-mode full flash.
-          Add-ons are optional. Modified cars: still order base, but list every mod.
-        </p>
-
-        <div class="price-box">
-          <div class="price-box-main">
-            <h3>Stage 1 dual-mode full flash</h3>
-            <p class="tag">$149</p>
-            <p>
-              Comfort for the week, Sport when you want noise — throttle response, pull, and burble
-              when the mode calls for it. Full BIN. Confirm DME unlock + SWFL/SWFK.
-            </p>
-          </div>
-        </div>
-
-        <h3 class="addons-h">Add-ons</h3>
-        <div class="addon-list">
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="49" data-name="Texas Max Cooling" />
-            <span class="addon-price">+$49</span>
-            <span class="addon-text">
-              <strong>Texas Max Cooling</strong> —
-              Lower coolant targets, earlier fans, more charge-air pump. For serious heat.
-            </span>
-          </label>
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="39" data-name="Extra Crackle Burble" />
-            <span class="addon-price">+$39</span>
-            <span class="addon-text">
-              <strong>Extra Crackle Burble+</strong> —
-              Louder Sport overrun. Comfort stays quiet.
-            </span>
-          </label>
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="59" data-name="Spicy Pedal Sport" />
-            <span class="addon-price">+$59</span>
-            <span class="addon-text">
-              <strong>Spicy Pedal Sport</strong> —
-              Harder Sport tip-in if you want it even sharper.
-            </span>
-          </label>
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="79" data-name="High Torque Package" />
-            <span class="addon-price">+$79</span>
-            <span class="addon-text">
-              <strong>High Torque Package</strong> —
-              Higher torque/load ceilings and a bit more boost headroom. 93+ only.
-            </span>
-          </label>
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="29" data-name="Log Review Session" />
-            <span class="addon-price">+$29</span>
-            <span class="addon-text">
-              <strong>Post-flash log review</strong> —
-              Send a Quickflash or JC Street Dyno log; written feedback back.
-            </span>
-          </label>
-          <label class="addon">
-            <input type="checkbox" class="addon-input" data-price="99" data-name="Priority Custom Revision" />
-            <span class="addon-price">+$99</span>
-            <span class="addon-text">
-              <strong>Priority revision</strong> —
-              One focused pass within ~72 hours after you’ve driven it.
-            </span>
-          </label>
         </div>
       </div>
     </section>
@@ -264,10 +172,7 @@
       <div class="inner order-grid">
         <div>
           <h2>Order</h2>
-          <p class="intro">
-            No card form on this page yet. This builds a plain-text order you can email or message.
-            Total updates as you tick add-ons.
-          </p>
+          <p class="intro">Chat builds most of this. Confirm and generate a plain-text order (payment offline until wired).</p>
           <div class="totals">
             <div class="totals-row"><span>Base Stage 1</span><span>$149</span></div>
             <ul id="order-lines" class="order-lines"></ul>
@@ -276,33 +181,21 @@
         </div>
 
         <form id="order-form" class="order-form">
+          <label>Name<input name="name" required autocomplete="name" /></label>
+          <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          <label>Car<input name="vehicle" id="order-vehicle" required placeholder="2017 F22 230i · ZF8" /></label>
+          <label>SWFL / SWFK<input name="software" id="order-software" required placeholder="from Quickflash" /></label>
           <label>
-            Name
-            <input name="name" required autocomplete="name" />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" required autocomplete="email" />
-          </label>
-          <label>
-            Car (year / model / auto or MT)
-            <input name="vehicle" required placeholder="2017 F22 230i · ZF8" />
-          </label>
-          <label>
-            SWFL / SWFK (from Quickflash)
-            <input name="software" required placeholder="e.g. 3076 v080_017_003 / 437F v080_017_013" />
-          </label>
-          <label>
-            DME unlock status (required for full flash)
-            <select name="unlock" required>
+            DME unlock status
+            <select name="unlock" id="order-unlock" required>
               <option value="">—</option>
               <option value="unlocked-quickflash">DME unlocked · B48 Quickflash</option>
               <option value="unlocked-other">DME unlocked · other full-flash tool</option>
-              <option value="not-unlocked">DME not unlocked yet (don’t order until this is done)</option>
+              <option value="not-unlocked">DME not unlocked yet</option>
             </select>
           </label>
           <label>
-            Flash tool you’ll use
+            Flash tool
             <select name="tool" required>
               <option value="">—</option>
               <option>B48 Quickflash</option>
@@ -311,28 +204,26 @@
             </select>
           </label>
           <label>
-            Hardware — stock or list every mod
-            <select name="hardware" required>
+            Hardware
+            <select name="hardware" id="order-hardware" required>
               <option value="">—</option>
-              <option value="all-stock">All stock (intake / turbo / exhaust / cooling / fuel)</option>
-              <option value="modified">Modified — I will list everything below</option>
+              <option value="all-stock">All stock</option>
+              <option value="modified">Modified (list in notes)</option>
             </select>
           </label>
           <label class="check">
             <input type="checkbox" name="fullflash" required />
-            I understand this is a <strong>full BIN flash</strong> and my <strong>DME is already unlocked</strong> for full flash (e.g. B48 Quickflash).
+            Full BIN flash · DME already unlocked
           </label>
           <label class="check">
             <input type="checkbox" name="backup" required />
-            I have (or will take) a <strong>stock BIN backup</strong> before flashing.
+            Stock BIN backup before flash
           </label>
           <label>
-            Notes (octane, mods, what you want from Sport)
-            <textarea name="notes" rows="3" placeholder="If modified: list every part. If stock: 93 AKI + goals."></textarea>
+            Notes / mods / goals
+            <textarea name="notes" id="order-notes" rows="3"></textarea>
           </label>
-          <button type="submit" class="btn solid">
-            Generate order · $<span id="submit-total">149</span>
-          </button>
+          <button type="submit" class="btn solid">Generate order · $<span id="submit-total">149</span></button>
           <p id="form-status" class="status"></p>
         </form>
       </div>
@@ -342,26 +233,17 @@
       <div class="inner">
         <h2>FAQ</h2>
         <dl class="faq">
-          <dt>Is this a Stage 1?</dt>
-          <dd>Yes. Stage 1 full-flash calibration for all-stock B46/B48 MG1 hardware on 93 AKI, with Comfort / Sport dual personality.</dd>
-
-          <dt>Can you unlock my DME in the file?</dt>
+          <dt>Is this Stage 1?</dt>
+          <dd>Yes — Stage 1 full-flash for all-stock B46/B48 MG1 on 93, with Comfort / Sport dual personality.</dd>
+          <dt>Does the chat use Grok?</dt>
           <dd>
-            No. <strong>DME unlock</strong> is a separate tool process (B48 Quickflash or similar).
-            This is the calibration only — for a DME that already takes a full flash.
+            When a server endpoint is configured with an xAI key, yes (Grok via SpaceXAI / api.x.ai).
+            On plain GitHub Pages the builder still works offline with the same product rules and next-step prompts.
           </dd>
-
-          <dt>Partial flash?</dt>
-          <dd>Not supported. Full BIN flash only.</dd>
-
-          <dt>Is this for a stock car?</dt>
-          <dd>
-            Default yes. Published power figures and the base Stage 1 assume all-stock hardware.
-            List every mod when you order if the car isn’t stock.
-          </dd>
-
-          <dt>Fuel?</dt>
-          <dd>93 AKI US premium or better.</dd>
+          <dt>DME unlock in the BIN?</dt>
+          <dd>No. Unlock with B48 Quickflash (or similar) first. We deliver the calibration only.</dd>
+          <dt>Stock only?</dt>
+          <dd>Base figures assume all-stock hardware. List every mod in chat or notes for accurate tuning.</dd>
         </dl>
       </div>
     </section>
@@ -370,13 +252,11 @@
   <footer class="site-footer">
     <div class="inner">
       <p><strong>JC QuickTune</strong> — Stage 1 dual-mode MG1 B46/B48 street calibrations.</p>
-      <p class="small dim">
-        Not affiliated with BMW AG. You assume all risk for flashing and driving.
-        Full flash · DME must already be unlocked (B48 Quickflash or similar).
-      </p>
+      <p class="small dim">Full flash · DME must already be unlocked · Not affiliated with BMW AG · You assume flash risk.</p>
     </div>
   </footer>
 
+  <script src="chat.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
