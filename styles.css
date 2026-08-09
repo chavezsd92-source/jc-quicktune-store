@@ -40,15 +40,133 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background graphics */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb-a {
+  width: 420px;
+  height: 420px;
+  background: #1e4f9a;
+  top: -120px;
+  right: -80px;
+}
+
+.orb-b {
+  width: 360px;
+  height: 360px;
+  background: #14532d;
+  bottom: 10%;
+  left: -100px;
+  animation-delay: -4s;
+}
+
+.grid-fade {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(36, 48, 65, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(36, 48, 65, 0.35) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 20%, transparent 75%);
+  opacity: 0.45;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 24px) scale(1.06);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(62, 207, 142, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 24px 2px rgba(62, 207, 142, 0.22);
+  }
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-in {
+  animation: fade-up 0.55s ease both;
+}
+
+.delay-1 {
+  animation-delay: 0.12s;
+}
+
+.delay-2 {
+  animation-delay: 0.22s;
 }
 
 .inner {
   width: min(100% - 2rem, var(--wide));
   margin-inline: auto;
+  position: relative;
+  z-index: 1;
 }
 
 a {
   color: var(--primary);
+}
+
+.accent-line {
+  color: #9ec5ff;
 }
 
 /* Header */
@@ -85,6 +203,19 @@ a {
   object-fit: contain;
   border-radius: 6px;
   background: #0f1419;
+}
+
+.logo-badge {
+  font-size: 0.65rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ok);
+  border: 1px solid rgba(62, 207, 142, 0.4);
+  background: rgba(62, 207, 142, 0.1);
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
 }
 
 .site-header nav {
@@ -167,6 +298,140 @@ a {
   font-family: var(--mono);
 }
 
+.stat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.1rem 0 0.9rem;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-width: 7.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(61, 139, 253, 0.45);
+}
+
+.stat-pill.glow {
+  border-color: rgba(62, 207, 142, 0.4);
+  animation: pulse-glow 2.8s ease-in-out infinite;
+}
+
+.stat-ico {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.stat-pill strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.98rem;
+  color: #fff;
+}
+
+.stat-pill small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.mode-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 760px) {
+  .mode-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mode-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.15rem 1.2rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.mode-card.comfort:hover {
+  border-color: rgba(62, 207, 142, 0.45);
+}
+
+.mode-card.sport:hover {
+  border-color: rgba(240, 180, 41, 0.5);
+}
+
+.mode-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  border-radius: 10px;
+  margin-bottom: 0.65rem;
+  background: rgba(61, 139, 253, 0.12);
+}
+
+.mode-card.comfort .mode-icon {
+  background: rgba(62, 207, 142, 0.12);
+}
+
+.mode-card.sport .mode-icon {
+  background: rgba(240, 180, 41, 0.12);
+}
+
+.mode-points {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.mode-points li {
+  margin-bottom: 0.25rem;
+}
+
+.chat-head-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.chat-avatar {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(61, 139, 253, 0.15);
+  border: 1px solid rgba(61, 139, 253, 0.3);
+  font-size: 1rem;
+}
+
+.suggest-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  padding: 0 0.85rem 0.25rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 /* Chat panel */
 .chat-panel {
   display: flex;
@@ -175,8 +440,9 @@ a {
   max-height: 560px;
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
 .chat-head {
@@ -213,6 +479,7 @@ a {
 .msg {
   display: flex;
   max-width: 92%;
+  animation: msg-in 0.28s ease both;
 }
 
 .msg-user {
@@ -250,6 +517,14 @@ a {
   color: var(--muted);
 }
 
+.msg-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
 .msg-assistant .msg-bubble.typing {
   color: var(--primary);
   font-family: var(--mono);
@@ -269,17 +544,24 @@ a {
   background: var(--bg2);
   color: var(--muted);
   border-radius: 999px;
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.7rem;
   font-size: 0.75rem;
   font-family: inherit;
   cursor: pointer;
   text-align: left;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  animation: pop-in 0.3s ease both;
 }
 
 .chip:hover {
   border-color: var(--primary);
   color: var(--text);
-  background: rgba(61, 139, 253, 0.1);
+  background: rgba(61, 139, 253, 0.12);
+  transform: translateY(-1px);
+}
+
+.chip:active {
+  transform: scale(0.97);
 }
 
 .chat-input-row {
@@ -448,16 +730,24 @@ a {
 }
 
 .btn.solid {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: linear-gradient(135deg, #3d8bfd, #2f6fd4);
+  border-color: transparent;
   color: #fff;
   width: 100%;
   padding: 0.72rem 1rem;
   font-size: 0.98rem;
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px rgba(61, 139, 253, 0.25);
 }
 
 .btn.solid:hover {
   filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(61, 139, 253, 0.35);
+}
+
+.btn.solid.sm {
+  width: auto;
 }
 
 /* Numbers card */

@@ -57,7 +57,10 @@
     if (!logEl) return;
     const row = el("div", `msg msg-${role}`);
     const bubble = el("div", "msg-bubble");
-    // simple paragraphs
+    if (role === "assistant") {
+      const tag = el("div", "msg-tag", "🛠️ Tuner");
+      bubble.appendChild(tag);
+    }
     String(text)
       .split(/\n+/)
       .filter(Boolean)

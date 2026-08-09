@@ -8,72 +8,106 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="bg-fx" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grid-fade"></div>
+  </div>
+
   <header class="site-header">
     <div class="inner header-row">
       <a class="logo" href="#top">
         <img src="assets/jc-street-dyno-logo.png" alt="" class="logo-img" width="28" height="28" />
         <span>JC QuickTune</span>
+        <span class="logo-badge">Stage 1</span>
       </a>
       <nav>
-        <a href="#builder">Build</a>
-        <a href="#what">About</a>
-        <a href="#requirements">Requirements</a>
-        <a href="#order">Order</a>
+        <a href="#builder">💬 Build</a>
+        <a href="#what">⚡ About</a>
+        <a href="#requirements">⚠️ Requirements</a>
+        <a href="#order">🧾 Order</a>
       </nav>
     </div>
   </header>
 
   <aside class="banner-warn" id="requirements">
     <div class="inner">
-      <strong>Before you flash</strong>
+      <strong>⚠️ Before you flash</strong>
       <ul>
-        <li>This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
+        <li>📦 This is a <em>full BIN flash</em> — whole calibration image, not a partial write.</li>
         <li>
-          <strong>DME must already be unlocked</strong> for full flash (B48 Quickflash or similar).
+          🔓 <strong>DME must already be unlocked</strong> for full flash (B48 Quickflash or similar).
           This file does not unlock a locked DME.
         </li>
-        <li>Keep a <strong>stock BIN backup</strong>. List every hardware mod when you order.</li>
+        <li>💾 Keep a <strong>stock BIN backup</strong>. List every hardware mod when you order.</li>
       </ul>
     </div>
   </aside>
 
   <main id="top">
-    <!-- HERO + BUILDER -->
     <section class="hero" id="builder">
       <div class="inner hero-grid">
-        <div class="hero-copy">
-          <p class="kicker">Stage 1 · same stack we run on a daily 230i</p>
-          <h1>Custom MG1 Stage 1 for B46/B48 — Comfort for the week, Sport when you want noise.</h1>
+        <div class="hero-copy anim-in">
+          <p class="kicker">🏁 Stage 1 · same stack we run on a daily 230i</p>
+          <h1>
+            Custom MG1 Stage 1 for B46/B48 —
+            <span class="accent-line">Comfort for the week, Sport when you want noise.</span>
+          </h1>
           <p class="intro">
             A lot of Stage 1 files force one personality all the time. This one is built the other way:
             quiet and thriftier in Comfort / default, and only mean in Sport / Sport+.
           </p>
           <p class="intro">
             Built on 93 AKI, hot weather, and a lot of real street pulls — not brochure fantasy.
-            Chat below like you’d talk to a tuner: car, goals, burbles, cooling. We’ll shape the package and suggest next steps.
+            Chat like you’d talk to a tuner: car, goals, burbles, cooling. We’ll shape the package and suggest next steps.
           </p>
-          <p class="price-line">
-            Base Stage 1 <strong>$149</strong>
-            <span class="pill">~285–295 rwhp · ~335–355 lb-ft wheels</span>
-          </p>
+
+          <div class="stat-pills">
+            <div class="stat-pill">
+              <span class="stat-ico">🏎️</span>
+              <div>
+                <strong>~285–295</strong>
+                <small>rwhp</small>
+              </div>
+            </div>
+            <div class="stat-pill">
+              <span class="stat-ico">💪</span>
+              <div>
+                <strong>~335–355</strong>
+                <small>lb-ft wheels</small>
+              </div>
+            </div>
+            <div class="stat-pill glow">
+              <span class="stat-ico">💵</span>
+              <div>
+                <strong>$149</strong>
+                <small>base Stage 1</small>
+              </div>
+            </div>
+          </div>
+
           <div class="verify-badge">
             <img src="assets/jc-street-dyno-logo.png" alt="JC Street Dyno" class="verify-logo" width="52" height="18" />
             <div class="verify-copy">
-              <strong>Verified with JC Street Dyno</strong><span class="copy-mark">©</span>
+              <strong>✓ Verified with JC Street Dyno</strong><span class="copy-mark">©</span>
               <p>Extensive testing &amp; datalogs · all-stock baseline · list mods when ordering</p>
             </div>
           </div>
         </div>
 
-        <div class="chat-panel" id="chat-panel">
+        <div class="chat-panel anim-in delay-1" id="chat-panel">
           <div class="chat-head">
-            <div>
-              <strong>Stage 1 builder</strong>
-              <span class="chat-sub" id="chat-mode-label">Online when Grok API is configured · offline builder always works</span>
+            <div class="chat-head-left">
+              <span class="chat-avatar" aria-hidden="true">🛠️</span>
+              <div>
+                <strong>Stage 1 builder</strong>
+                <span class="chat-sub" id="chat-mode-label">Chat to build your flash · next steps below</span>
+              </div>
             </div>
-            <button type="button" class="btn ghost sm" id="chat-reset" title="Start over">Reset</button>
+            <button type="button" class="btn ghost sm" id="chat-reset" title="Start over">↺ Reset</button>
           </div>
           <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <div class="suggest-label">💡 Next steps</div>
           <div class="suggest-row" id="suggest-row"></div>
           <form class="chat-input-row" id="chat-form">
             <input
@@ -82,62 +116,61 @@
               autocomplete="off"
               placeholder="e.g. 2017 230i auto, all stock, 93, want Sport burbles…"
             />
-            <button type="submit" class="btn solid sm">Send</button>
+            <button type="submit" class="btn solid sm">Send ➤</button>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- LIVE PACKAGE -->
     <section class="block muted-bg" id="package">
       <div class="inner package-grid">
-        <div>
-          <h2>Your build</h2>
+        <div class="anim-in">
+          <h2>📋 Your build</h2>
           <p class="intro">Filled as you chat. Edit by talking — or tick add-ons manually.</p>
           <dl class="build-facts" id="build-facts">
-            <div><dt>Vehicle</dt><dd id="fact-vehicle">—</dd></div>
-            <div><dt>Hardware</dt><dd id="fact-hardware">—</dd></div>
-            <div><dt>Fuel</dt><dd id="fact-fuel">—</dd></div>
-            <div><dt>Goals</dt><dd id="fact-goals">—</dd></div>
-            <div><dt>DME unlock</dt><dd id="fact-unlock">—</dd></div>
-            <div><dt>Software</dt><dd id="fact-software">—</dd></div>
+            <div><dt>🚗 Vehicle</dt><dd id="fact-vehicle">—</dd></div>
+            <div><dt>🔧 Hardware</dt><dd id="fact-hardware">—</dd></div>
+            <div><dt>⛽ Fuel</dt><dd id="fact-fuel">—</dd></div>
+            <div><dt>🎯 Goals</dt><dd id="fact-goals">—</dd></div>
+            <div><dt>🔓 DME unlock</dt><dd id="fact-unlock">—</dd></div>
+            <div><dt>💾 Software</dt><dd id="fact-software">—</dd></div>
           </dl>
         </div>
-        <div class="package-card">
-          <h3>Package · <span id="pkg-total">$149</span></h3>
+        <div class="package-card anim-in delay-1">
+          <h3>🛒 Package · <span id="pkg-total">$149</span></h3>
           <ul class="pkg-lines" id="pkg-lines">
-            <li><span>Stage 1 dual-mode base</span><span>$149</span></li>
+            <li><span>🏁 Stage 1 dual-mode base</span><span>$149</span></li>
           </ul>
           <div class="addon-list compact" id="manual-addons">
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="49" data-name="Texas Max Cooling" data-key="cooling" />
               <span class="addon-price">+$49</span>
-              <span class="addon-text"><strong>Texas Max Cooling</strong></span>
+              <span class="addon-text"><strong>🌡️ Texas Max Cooling</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="39" data-name="Extra Crackle Burble" data-key="burble" />
               <span class="addon-price">+$39</span>
-              <span class="addon-text"><strong>Extra Crackle Burble+</strong></span>
+              <span class="addon-text"><strong>💥 Extra Crackle Burble+</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="59" data-name="Spicy Pedal Sport" data-key="spicy" />
               <span class="addon-price">+$59</span>
-              <span class="addon-text"><strong>Spicy Pedal Sport</strong></span>
+              <span class="addon-text"><strong>⚡ Spicy Pedal Sport</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="79" data-name="High Torque Package" data-key="torque" />
               <span class="addon-price">+$79</span>
-              <span class="addon-text"><strong>High Torque Package</strong></span>
+              <span class="addon-text"><strong>🚀 High Torque Package</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="29" data-name="Log Review Session" data-key="logs" />
               <span class="addon-price">+$29</span>
-              <span class="addon-text"><strong>Post-flash log review</strong></span>
+              <span class="addon-text"><strong>📊 Post-flash log review</strong></span>
             </label>
             <label class="addon">
               <input type="checkbox" class="addon-input" data-price="99" data-name="Priority Custom Revision" data-key="priority" />
               <span class="addon-price">+$99</span>
-              <span class="addon-text"><strong>Priority revision</strong></span>
+              <span class="addon-text"><strong>⏱️ Priority revision</strong></span>
             </label>
           </div>
           <a class="btn solid" href="#order">Continue to order →</a>
@@ -147,23 +180,43 @@
 
     <section class="block" id="what">
       <div class="inner">
-        <h2>Stage 1 dual-mode, on the fly</h2>
-        <div class="two-col">
-          <div>
+        <h2>⚡ Stage 1 dual-mode, on the fly</h2>
+        <div class="mode-cards">
+          <article class="mode-card comfort anim-in">
+            <div class="mode-icon">🌿</div>
             <h3>Comfort / daily</h3>
             <p>
               Quieter overrun, calmer manners, part-load bias for commuting and highway.
               Stage 1 headroom is still there if you dig deep — Comfort just doesn’t shout about it.
             </p>
-          </div>
-          <div>
+            <ul class="mode-points">
+              <li>Quieter lift-off</li>
+              <li>Efficient cruise manners</li>
+              <li>Still has power if needed</li>
+            </ul>
+          </article>
+          <article class="mode-card sport anim-in delay-1">
+            <div class="mode-icon">🔥</div>
             <h3>Sport / Sport+</h3>
             <p>
               Immediate tip-in, sharp part-throttle, hard acceleration when you lean on it,
               plus strong burbles on lift. Flip the drive mode and the whole personality changes —
               no reflash, no laptop.
             </p>
-          </div>
+            <ul class="mode-points">
+              <li>Throttle response you feel now</li>
+              <li>Hard, fast pulls</li>
+              <li>Burble &amp; crackle on lift</li>
+            </ul>
+          </article>
+        </div>
+        <div class="personality anim-in delay-2">
+          <h3>🔄 One Stage 1 flash. Whole personality — on the fly.</h3>
+          <p>
+            Comfort when you’re saving fuel and nerves. Sport when you want instant throttle,
+            hard acceleration, and the noise to match. No reflash. No juggling files.
+            Just change the mode and go.
+          </p>
         </div>
       </div>
     </section>
@@ -171,10 +224,10 @@
     <section class="block muted-bg" id="order">
       <div class="inner order-grid">
         <div>
-          <h2>Order</h2>
-          <p class="intro">Chat builds most of this. Confirm and generate a plain-text order (payment offline until wired).</p>
+          <h2>🧾 Order</h2>
+          <p class="intro">Chat builds most of this. Confirm and generate a plain-text order.</p>
           <div class="totals">
-            <div class="totals-row"><span>Base Stage 1</span><span>$149</span></div>
+            <div class="totals-row"><span>🏁 Base Stage 1</span><span>$149</span></div>
             <ul id="order-lines" class="order-lines"></ul>
             <div class="totals-row big"><span>Total</span><strong id="order-total">$149</strong></div>
           </div>
@@ -223,7 +276,9 @@
             Notes / mods / goals
             <textarea name="notes" id="order-notes" rows="3"></textarea>
           </label>
-          <button type="submit" class="btn solid">Generate order · $<span id="submit-total">149</span></button>
+          <button type="submit" class="btn solid">
+            Generate order · $<span id="submit-total">149</span>
+          </button>
           <p id="form-status" class="status"></p>
         </form>
       </div>
@@ -231,14 +286,14 @@
 
     <section class="block">
       <div class="inner">
-        <h2>FAQ</h2>
+        <h2>❓ FAQ</h2>
         <dl class="faq">
           <dt>Is this Stage 1?</dt>
           <dd>Yes — Stage 1 full-flash for all-stock B46/B48 MG1 on 93, with Comfort / Sport dual personality.</dd>
           <dt>Does the chat use Grok?</dt>
           <dd>
-            When a server endpoint is configured with an xAI key, yes (Grok via SpaceXAI / api.x.ai).
-            On plain GitHub Pages the builder still works offline with the same product rules and next-step prompts.
+            When a server endpoint is configured with an xAI key, yes.
+            On plain GitHub Pages the builder still works offline with next-step prompts.
           </dd>
           <dt>DME unlock in the BIN?</dt>
           <dd>No. Unlock with B48 Quickflash (or similar) first. We deliver the calibration only.</dd>
