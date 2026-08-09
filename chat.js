@@ -493,11 +493,7 @@
     }
     syncPackageUI();
     return {
-      text:
-        "Hey — let’s build your Stage 1 dual-mode flash the same way we tune in chat.\n\n" +
-        "Base is $149: Comfort for the week, Sport when you want noise — throttle response and acceleration you feel immediately in Sport, quieter daily manners in Comfort. " +
-        "All-stock baseline: ~285–295 rwhp / ~335–355 lb-ft at the wheels.\n\n" +
-        "What’s the car? (year, model, auto/manual)",
+      text: "What’s the car? Year, model, auto or manual.",
       suggestions: nextSuggestions(),
     };
   }
